@@ -1,0 +1,6 @@
+# requirements.txt
+Flask
+Flask-SQLAlchemy
+Werkzeug
+python-dotenv
+openai

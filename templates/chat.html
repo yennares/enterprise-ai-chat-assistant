@@ -1,0 +1,58 @@
+<!-- templates/chat.html -->
+{% extends "base.html" %}
+
+{% block title %}AI Assistant - Corporate HR System{% endblock %}
+
+{% block content %}
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div class="col-12">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h4><i class="fas fa-robot"></i> HR AI Assistant</h4>
+                    <p class="mb-0">Ask me about your leaves, salary, documents, and more!</p>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message bot-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>Hello {{ session.full_name }}! I'm your HR assistant. I can help you with:</p>
+                            <ul>
+                                <li>Leave balances (sick, vacation, personal)</li>
+                                <li>Document expiry dates</li>
+                                <li>Salary information</li>
+                                <li>General HR queries</li>
+                            </ul>
+                            <p>Try asking me something like "How many sick days do I have?" or "When does my passport expire?"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="message-input" placeholder="Type your message..." maxlength="500">
+                        <button class="btn btn-primary" id="send-button" type="button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="typing-text">AI is typing...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}
